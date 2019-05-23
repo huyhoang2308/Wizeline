@@ -20,11 +20,12 @@ def get_user_data(name):
 
 def get_item(name):
     try:
-        return (note for note in notes if note["name"] == name).__next__()
+        return (item for item in items if item["name"] == name).__next__()
     except:
-        print(("\n     Note %s is not defined.\n" %name))
+        print(("\n     Item %s is not defined.\n" %name))
 
 def get_item_data(name):
-    return (list(note.values()) for note in notes if note["name"] == name).__next__()
+    return (list(item.values()) for item in items if items["name"] == name).__next__()
 
 
+print (get_item("Sauce Labs Backpack")['title'])

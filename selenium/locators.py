@@ -13,8 +13,8 @@ class ProductPageLocators(object):
     ITEM_NAME         = (By.CLASS_NAME, 'inventory_item_name')
     ITEM_DESCRIPTION  = (By.CLASS_NAME, 'inventory_item_desc')
     ITEM_PRICE        = (By.CLASS_NAME, 'inventory_item_price')
-    ADD_TO_CART_BTN   = (By.CLASS_NAME, 'btn_primary btn_inventory')
-    MY_CART_ICON      = (By.CLASS_NAME, 'shopping_cart_link fa-layers fa-fw')
+    ADD_TO_CART_BTN   = (By.CLASS_NAME, 'btn_primary')
+    MY_CART_ICON      = (By.CLASS_NAME, 'shopping_cart_link')
 
 class YourCartLocators(object):
     REMOVE_BTN        = (By.XPATH, '//*[@id="cart_contents_container"]/div/div[1]/div[3]/div[2]/div[2]/button')

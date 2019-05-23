@@ -1,4 +1,5 @@
 from selenium import webdriver
+import os
 
 
 class Driver():
@@ -8,10 +9,16 @@ class Driver():
         self.base_url = base_url
 
     def setup_driver(self):
+        if os.name == 'nt':
+            gecko = '..\\libs\\geckodriver.exe'
+            chrome = '..\\libs\\chromedriver.exe'
+        else:
+            gecko = '../libs/geckodriver'
+            chrome = '../libs/chromedriver'
         if self.browser_name == 'firefox':
-            driver = webdriver.Firefox(executable_path="..\\libs\\geckodriver.exe")
+            driver = webdriver.Firefox(executable_path=gecko)
         elif self.browser_name == 'chrome':
-            driver = webdriver.Chrome(executable_path="..\\libs\\chromedriver.exe")
+            driver = webdriver.Chrome(executable_path=chrome)
         else:
             print ("browser not support")
         driver.get(self.base_url)

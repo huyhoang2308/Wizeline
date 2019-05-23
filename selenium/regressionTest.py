@@ -15,10 +15,15 @@ class TestPages(unittest.TestCase):
         self.driver = Driver('firefox').setup_driver()
 
     def test_sign_in_with_valid_user(self):
-        print ("\n" + str(test_cases(1)))
         loginPage = LoginPage(self.driver)
         productPage = loginPage.login("standard_user")
-        productPage.add_new_item_to_cart("Sauce Labs Backpack")
+        yourCartPage = productPage.add_new_item_to_cart('Sauce Labs Backpack')
+        checkOutInfo = yourCartPage.checkout_item()
+        checkOutOverview = checkOutInfo.enter_required_info()
+        finishPage = checkOutOverview.process_next()
+        result = finishPage.get_text()
+        self.assertEqual(result, ['THANK YOU FOR YOUR ORDER',\
+           'Your order has been dispatched, and will arrive just as fast as the pony can get there!'])
 
 
     def tearDown(self):
