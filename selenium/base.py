@@ -1,5 +1,4 @@
 import time
-from selenium import webdriver
 
 
 class Keyword(object):
@@ -39,7 +38,7 @@ class Keyword(object):
 
     def get_text(self, *locator):
         if self.wait_for_element_present(*locator):
-            return self.find_element(*locator).getText()
+            return self.find_element(*locator).text
 
     # def open(self,url):
     #     url = self.base_url + url

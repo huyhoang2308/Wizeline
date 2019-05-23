@@ -1,4 +1,3 @@
-# from selenium import webdriver
 from base import Keyword
 from locators import *
 import data
@@ -76,7 +75,7 @@ class YourCartPage(Keyword):
 
     def checkout_item(self):
         self.check_out()
-        return CheckOutInfoPage
+        return CheckOutInfoPage(self.driver)
 
 class CheckOutInfoPage(Keyword):
 
@@ -101,7 +100,7 @@ class CheckOutInfoPage(Keyword):
         self.enter_last_name()
         self.enter_zip_code()
         self.click_continue_button()
-        return CheckoutOverviewPage
+        return CheckoutOverviewPage(self.driver)
 
 class CheckoutOverviewPage(Keyword):
 
@@ -114,7 +113,7 @@ class CheckoutOverviewPage(Keyword):
 
     def process_next(self):
         self.click_finish()
-        return FinishLocatorsPage
+        return FinishLocatorsPage(self.driver)
 
 class FinishLocatorsPage(Keyword):
 
